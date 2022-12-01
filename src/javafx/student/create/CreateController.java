@@ -2,6 +2,9 @@ package javafx.student.create;
 
 import database.Connector;
 import entities.Student;
+import enums.RepoType;
+import factory.Factory;
+import impls.StudentRepository;
 import javafx.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -15,6 +18,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 import java.net.URL;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -41,15 +45,8 @@ public class CreateController implements Initializable {
                 throw new Exception("Điểm thi không hợp lệ");
             // them sv
             Student s=  new Student(null, txtName.getText(),txtEmail.getText(),m,cbGender.getValue());
-
-            Connector connector = new Connector();
-            String sql_txt = "insert into students(name,email,mark,gender) values(?,?,?,?)";
-            ArrayList parameters = new ArrayList();
-            parameters.add(s.getName());
-            parameters.add(s.getEmail());
-            parameters.add(s.getMark());
-            parameters.add(s.getGender());
-            if(connector.execute(sql_txt,parameters)){
+            StudentRepository sr = (StudentRepository) Factory.createRepository(RepoType.STUDENT);
+            if(sr.create(s)){
                 backToList(null);
                 return;
             }

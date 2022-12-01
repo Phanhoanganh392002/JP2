@@ -2,6 +2,7 @@ package javafx.student.list;
 
 import database.Connector;
 import entities.Student;
+import impls.StudentRepository;
 import javafx.Main;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -39,19 +40,8 @@ public class ListController implements Initializable {
         cAction.setCellValueFactory(new PropertyValueFactory<>("edit"));
 
         try {
-            Connector connector = new Connector();
-            String sql = "select * from students";
-            ResultSet rs = connector.query(sql);
-
-            while (rs.next()){
-                int id = rs.getInt("id");
-                String name = rs.getString("name");
-                String email = rs.getString("email");
-                int mark = rs.getInt("mark");
-                String gender = rs.getString("gender");
-                Student s = new Student(id,name,email,mark,gender);
-                ls.add(s);
-            }
+            StudentRepository sr = new StudentRepository();
+            ls.addAll(sr.all());
             tbStudents.setItems(ls);
         }catch (Exception e){
             Alert alert = new Alert(Alert.AlertType.ERROR);
