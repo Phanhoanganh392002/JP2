@@ -5,12 +5,12 @@
 <?import javafx.scene.text.Font?>
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafx.student.list.ListController">
     <children>
-        <Button onAction="#search" layoutX="302.0" layoutY="34.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="77.0" text="Search">
+        <Button fx:id="btnSearch" onAction="#search" layoutX="302.0" layoutY="34.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="77.0" text="Search">
             <font>
                 <Font size="15.0" />
             </font>
         </Button>
-        <Button layoutX="599.0" layoutY="34.0" mnemonicParsing="false" onAction="#createStudent" prefHeight="26.0" prefWidth="140.0" text="Create a Student">
+        <Button fx:id="btnCreate" layoutX="599.0" layoutY="34.0" mnemonicParsing="false" onAction="#createStudent" prefHeight="26.0" prefWidth="140.0" text="Create a Student">
             <font>
                 <Font size="15.0" />
             </font>

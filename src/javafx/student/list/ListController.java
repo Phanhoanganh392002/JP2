@@ -28,6 +28,8 @@ public class ListController implements Initializable {
     public TableColumn<Student,String> cGender;
     public TableColumn<Student, Button> cAction;
     public TextField txtSearch;
+    public Button btnSearch;
+    public Button btnCreate;
 
     private ObservableList<Student> ls = FXCollections.observableArrayList();
 
@@ -39,6 +41,13 @@ public class ListController implements Initializable {
         cGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
         cAction.setCellValueFactory(new PropertyValueFactory<>("edit"));
 
+        btnSearch.setText(Main._msg.getString("search"));
+        btnCreate.setText(Main._msg.getString("create"));
+        cName.setText(Main._msg.getString("name"));
+        cEmail.setText(Main._msg.getString("email"));
+        cMark.setText(Main._msg.getString("mark"));
+        cGender.setText(Main._msg.getString("gender"));
+        cAction.setText(Main._msg.getString("action"));
         try {
             StudentRepository sr = new StudentRepository();
             ls.addAll(sr.all());

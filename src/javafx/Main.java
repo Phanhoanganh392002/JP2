@@ -6,10 +6,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 public class Main extends Application {
     public static Stage rootStage;
 
+    public static ResourceBundle _msg;
+
     public static void main(String[] args) {
+        Locale.setDefault(new Locale("vi","VN"));
+        _msg = ResourceBundle.getBundle("demo.i18n.messages");
         launch(args);
     }
 
