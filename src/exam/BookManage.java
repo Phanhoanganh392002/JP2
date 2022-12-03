@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BookManage {
-    private ArrayList<Book> BookList = new ArrayList<Book>();
+    private ArrayList<Books> BookList = new ArrayList<Books>();
 
     Scanner sc = new Scanner(System.in);
     //input
@@ -14,18 +14,18 @@ public class BookManage {
         String ID = sc.nextLine();
         return ID;
     }
-    public String inputFirstName() {
-        System.out.print("Input book first name: ");
-        String firstname = sc.nextLine();
-        return firstname;
+    public String inputName() {
+        System.out.print("Input Name: ");
+        String Name = sc.nextLine();
+        return Name;
     }
-    public String inputLastName() {
-        System.out.print("Input book last name: ");
+    public String inputAuthor() {
+        System.out.print("Input Author: ");
         String lastname = sc.nextLine();
         return lastname;
     }
-    public int inputAge() {
-        System.out.print("Input book age: ");
+    public int inputPrice() {
+        System.out.print("Input Price: ");
         while (true) {
             try {
                 int age = sc.nextInt();
@@ -41,13 +41,14 @@ public class BookManage {
 
     public void addBook(){
         String ID = inputID();
-        String firstname = inputFirstName();
-        String lastname = inputLastName();
-        int age = inputAge();
+        String Name = inputName();
+        String Author = inputAuthor();
+        double Price = inputPrice();
 
-        Book student = new Book(ID, firstname, lastname, age);
-        BookList.add(student);
+        Books student = new Books(ID, Name, Author,  Price);
+        BookList.add(new Books());
     }
+
 
 
     public void saveBook() throws IOException {
@@ -72,11 +73,11 @@ public class BookManage {
 
     //read files -> show student
     public void readFiles() throws IOException, ClassNotFoundException {
-        File f = new File("students.txt");
+        File f = new File("books.txt");
         FileInputStream fin = new FileInputStream(f);
         ObjectInputStream objin = new ObjectInputStream(fin);
 
-        BookList = new ArrayList<Book>();
+        BookList = new ArrayList<Books>();
         BookList = (ArrayList)objin.readObject();
 
         showBook();
@@ -92,8 +93,8 @@ public class BookManage {
         else{
             System.out.println("|   EnrolID   |      Full name      |  Age  |");
             System.out.print("=============================================\n");
-            for (Book st : BookList) {
-                System.out.format("| %11s | %19s | %5d |\n",st.getEnrolID(),st.getFirstName() + " " + st.getLastName(),st.getAge());
+            for (Books st : BookList) {
+                System.out.format("| %11s | %19s | %5d |\n",st.getID(),st.getName() + " " + st.getAuthor(),st.getPrice());
             }
         }
     }

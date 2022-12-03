@@ -15,7 +15,7 @@ import java.util.List;
 public class BookDAO {
     private static final String BOOK_FILE_NAME_FILE_NAME = "book.dat";
 
-    public void write(List<Book> BookList) {
+    public void write(List<Books> BookList) {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
@@ -32,14 +32,14 @@ public class BookDAO {
         }
     }
 
-    public List<Book> read() {
-        List<Book> BookList = new ArrayList<>();
+    public List<Books> read() {
+        List<Books> BookList = new ArrayList<>();
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try {
             fis = new FileInputStream(new File(BOOK_FILE_NAME_FILE_NAME));
             ois = new ObjectInputStream(fis);
-            BookList = (List<Book>) ois.readObject();
+            BookList = (List<Books>) ois.readObject();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
