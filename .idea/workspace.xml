@@ -2,16 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="398fcd0b-bee2-4a41-abdd-63038616a86a" name="Changes" comment="new">
-      <change afterPath="$PROJECT_DIR$/src/demo/i18n/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/demo/i18n/messages_en_VN.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/demo/i18n/messages_vi_VN.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exam/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exam/add/AddController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/exam/view/ViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/javafx/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/javafx/student/list/ListController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/student/list/ListController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/javafx/student/list/list.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/javafx/student/list/list.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exam/BookManage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exam/BookManage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +134,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669860281266</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="new">
+      <created>1670039163039</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1670039163039</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

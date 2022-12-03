@@ -1,15 +1,27 @@
 package exam;
 
-public class BookDAO {
-    private static final String STUDENT_FILE_NAME = "students.dat";
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
-    public void write(List<Students> studentList) {
+public class BookDAO {
+    private static final String BOOK_FILE_NAME_FILE_NAME = "book.dat";
+
+    public void write(List<Book> BookList) {
         FileOutputStream fos = null;
         ObjectOutputStream oos = null;
         try {
-            fos = new FileOutputStream(new File(STUDENT_FILE_NAME));
+            fos = new FileOutputStream(new File(BOOK_FILE_NAME_FILE_NAME));
             oos = new ObjectOutputStream(fos);
-            oos.writeObject(studentList);
+            oos.writeObject(BookList);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -20,14 +32,14 @@ public class BookDAO {
         }
     }
 
-    public List<Students> read() {
-        List<Students> studentList = new ArrayList<>();
+    public List<Book> read() {
+        List<Book> BookList = new ArrayList<>();
         FileInputStream fis = null;
         ObjectInputStream ois = null;
         try {
-            fis = new FileInputStream(new File(STUDENT_FILE_NAME));
+            fis = new FileInputStream(new File(BOOK_FILE_NAME_FILE_NAME));
             ois = new ObjectInputStream(fis);
-            studentList = (List<Students>) ois.readObject();
+            BookList = (List<Book>) ois.readObject();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -38,7 +50,7 @@ public class BookDAO {
             closeStream(fis);
             closeStream(ois);
         }
-        return studentList;
+        return BookList;
     }
 
     private void closeStream(InputStream is) {
@@ -60,4 +72,5 @@ public class BookDAO {
             }
         }
     }
+
 }

@@ -1,18 +1,23 @@
 package exam;
 
+import java.awt.print.Book;
+import java.io.IOException;
+import java.util.Scanner;
+
 public class Main {
+
     public static void main(String[] args) {
         // write your code here
-        StudentManage sm = new StudentManage();
+        BookManage sm = new BookManage();
         Scanner sc = new Scanner(System.in);
         int x;
 
         while (true) {
             System.out.println("\n-----------Menu------------");
             System.out.println("Choose the function you want:");
-            System.out.println("1. Add student");
-            System.out.println("2. Save students to list");
-            System.out.println("3. Show student list");
+            System.out.println("1. Add book");
+            System.out.println("2. Save book");
+            System.out.println("3. Display book");
             System.out.println("0. Exit");
             System.out.println("---------------------------");
             do {
@@ -22,8 +27,8 @@ public class Main {
                 switch (x) {
                     case 1: {
                         try {
-                            sm.addStudent();
-                            System.out.println("\nYou have successfully added students");
+                            sm.addBook();
+                            System.out.println("\nYou have successfully added Book");
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
@@ -31,7 +36,7 @@ public class Main {
                     }
                     case 2: {
                         try {
-                            sm.saveStudents();
+                            sm.saveBook();
                             System.out.println("\nYou have successfully saved the student to the file");
                         } catch (Exception e){
                             System.out.println(e.getMessage());
@@ -40,8 +45,8 @@ public class Main {
                     }
                     case 3: {
                         try {
-                            System.out.println("\nStudents List: \n");
-                            sm.showStudent();
+                            System.out.println("\nBook List: \n");
+                            sm.showBook();
                         } catch (Exception e) {
                             System.out.println(e.getMessage());
                         }
